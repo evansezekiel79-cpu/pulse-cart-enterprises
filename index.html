@@ -122,4 +122,721 @@ header{
 
 .section-title{
   text-align:center;
-  margin-bottom:
+  margin-bottom:25px;
+}
+
+.section-title h2{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.section-title p{color:#6b7280}
+
+.search{
+  width:100%;
+  padding:15px 18px;
+  border:1px solid #d1d5db;
+  border-radius:12px;
+  font-size:16px;
+  margin-bottom:15px;
+  outline:none;
+}
+
+.search:focus{
+  border-color:#22c55e;
+}
+
+.categories{
+  display:flex;
+  gap:9px;
+  overflow-x:auto;
+  padding-bottom:15px;
+  margin-bottom:20px;
+}
+
+.category{
+  border:1px solid #d1d5db;
+  background:white;
+  padding:10px 15px;
+  border-radius:20px;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+.category.active,
+.category:hover{
+  background:#111827;
+  color:white;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.product{
+  background:white;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,.07);
+  transition:.2s;
+}
+
+.product:hover{
+  transform:translateY(-4px);
+}
+
+.product-image{
+  height:210px;
+  background:#f3f4f6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.product-info{
+  padding:17px;
+}
+
+.tag{
+  color:#16a34a;
+  font-size:12px;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+
+.product h3{
+  margin:7px 0;
+  font-size:17px;
+  line-height:1.3;
+}
+
+.price{
+  font-size:19px;
+  font-weight:800;
+  margin:12px 0;
+}
+
+.add{
+  width:100%;
+  border:0;
+  background:#111827;
+  color:white;
+  padding:12px;
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.add:hover{
+  background:#22c55e;
+  color:#07130b;
+}
+
+.no-results{
+  text-align:center;
+  padding:40px;
+  color:#6b7280;
+  display:none;
+}
+
+footer{
+  margin-top:60px;
+  background:#111827;
+  color:white;
+  padding:40px 20px;
+  text-align:center;
+}
+
+footer p{
+  color:#cbd5e1;
+  margin-top:8px;
+}
+
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:200;
+}
+
+.cart{
+  position:absolute;
+  right:0;
+  top:0;
+  height:100%;
+  width:min(420px,95%);
+  background:white;
+  padding:22px;
+  overflow:auto;
+}
+
+.cart-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.close{
+  border:0;
+  background:#eee;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:18px;
+}
+
+.cart-item{
+  border-bottom:1px solid #e5e7eb;
+  padding:15px 0;
+}
+
+.cart-item h4{
+  margin-bottom:7px;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
+}
+
+.qty button{
+  border:0;
+  background:#111827;
+  color:white;
+  width:28px;
+  height:28px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.total{
+  font-size:22px;
+  font-weight:bold;
+  margin:20px 0;
+}
+
+.order{
+  width:100%;
+  border:0;
+  padding:14px;
+  background:#25D366;
+  color:white;
+  font-weight:bold;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .stats{
+    grid-template-columns:1fr;
+    margin-top:20px;
+  }
+
+  .hero{
+    padding:50px 20px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .product-image{
+    height:160px;
+  }
+
+  .product-info{
+    padding:12px;
+  }
+
+  .product h3{
+    font-size:15px;
+  }
+
+  .price{
+    font-size:16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">PULSE <span>CART</span></div>
+  <button class="cart-btn" onclick="openCart()">🛒 Cart <span id="cartCount">0</span></button>
+</header>
+
+<section class="hero">
+  <h1>Discover <span>Tech.</span></h1>
+  <p>
+    Explore phones, laptops, gaming products, audio devices and accessories
+    from Pulse Cart Enterprises.
+  </p>
+
+  <div class="buttons">
+    <a href="#products" class="btn shop">Shop Now</a>
+    <a href="https://wa.me/23480976043577" class="btn whatsapp" target="_blank">
+      WhatsApp Us
+    </a>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat">
+    <strong>16+</strong>
+    Products
+  </div>
+
+  <div class="stat">
+    <strong>5</strong>
+    Categories
+  </div>
+
+  <div class="stat">
+    <strong>Abuja</strong>
+    Based Store
+  </div>
+</section>
+
+<main class="container" id="products">
+
+  <div class="section-title">
+    <h2>Our Products</h2>
+    <p>Find the technology you need.</p>
+  </div>
+
+  <input
+    type="text"
+    id="search"
+    class="search"
+    placeholder="Search phones, laptops, gaming..."
+    oninput="filterProducts()"
+  >
+
+  <div class="categories">
+    <button class="category active" onclick="setCategory('All',this)">All</button>
+    <button class="category" onclick="setCategory('Phones',this)">Phones</button>
+    <button class="category" onclick="setCategory('Laptops',this)">Laptops</button>
+    <button class="category" onclick="setCategory('Gaming',this)">Gaming</button>
+    <button class="category" onclick="setCategory('Audio',this)">Audio</button>
+    <button class="category" onclick="setCategory('Accessories',this)">Accessories</button>
+  </div>
+
+  <div class="products" id="productGrid">
+
+    <div class="product" data-category="Laptops" data-name="Apple MacBook Pro 14-inch 2023">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80" alt="MacBook Pro">
+      </div>
+      <div class="product-info">
+        <span class="tag">Laptops</span>
+        <h3>Apple MacBook Pro 14-inch 2023</h3>
+        <div class="price">₦1,050,000</div>
+        <button class="add" onclick="addToCart('Apple MacBook Pro 14-inch 2023',1050000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Laptops" data-name="MacBook Air 13.3-inch 2020">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=80" alt="MacBook Air">
+      </div>
+      <div class="product-info">
+        <span class="tag">Laptops</span>
+        <h3>MacBook Air 13.3-inch 2020</h3>
+        <div class="price">₦612,000</div>
+        <button class="add" onclick="addToCart('MacBook Air 13.3-inch 2020',612000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Laptops" data-name="Dell Latitude 7400 2-in-1">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=800&q=80" alt="Dell Laptop">
+      </div>
+      <div class="product-info">
+        <span class="tag">Laptops</span>
+        <h3>Dell Latitude 7400 2-in-1</h3>
+        <div class="price">₦890,000</div>
+        <button class="add" onclick="addToCart('Dell Latitude 7400 2-in-1',890000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Gaming" data-name="PlayStation 5 Brand New">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=800&q=80" alt="PlayStation 5">
+      </div>
+      <div class="product-info">
+        <span class="tag">Gaming</span>
+        <h3>PlayStation 5 Brand New</h3>
+        <div class="price">₦950,000</div>
+        <button class="add" onclick="addToCart('PlayStation 5 Brand New',950000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Phones" data-name="Tecno Camon 40 CM5">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80" alt="Tecno Phone">
+      </div>
+      <div class="product-info">
+        <span class="tag">Phones</span>
+        <h3>Tecno Camon 40 CM5</h3>
+        <div class="price">₦319,800</div>
+        <button class="add" onclick="addToCart('Tecno Camon 40 CM5',319800)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Phones" data-name="iPhone 15">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&w=800&q=80" alt="iPhone 15">
+      </div>
+      <div class="product-info">
+        <span class="tag">Phones</span>
+        <h3>iPhone 15</h3>
+        <div class="price">₦750,000</div>
+        <button class="add" onclick="addToCart('iPhone 15',750000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Phones" data-name="Samsung Galaxy S24">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=800&q=80" alt="Samsung Galaxy">
+      </div>
+      <div class="product-info">
+        <span class="tag">Phones</span>
+        <h3>Samsung Galaxy S24</h3>
+        <div class="price">₦820,000</div>
+        <button class="add" onclick="addToCart('Samsung Galaxy S24',820000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Phones" data-name="iPhone 13">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=800&q=80" alt="iPhone 13">
+      </div>
+      <div class="product-info">
+        <span class="tag">Phones</span>
+        <h3>iPhone 13</h3>
+        <div class="price">₦580,000</div>
+        <button class="add" onclick="addToCart('iPhone 13',580000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Audio" data-name="Wireless Gaming Headset">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&fit=crop&w=800&q=80" alt="Gaming Headset">
+      </div>
+      <div class="product-info">
+        <span class="tag">Audio</span>
+        <h3>Wireless Gaming Headset</h3>
+        <div class="price">₦85,000</div>
+        <button class="add" onclick="addToCart('Wireless Gaming Headset',85000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Audio" data-name="Bluetooth Speaker">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=80" alt="Bluetooth Speaker">
+      </div>
+      <div class="product-info">
+        <span class="tag">Audio</span>
+        <h3>Bluetooth Speaker</h3>
+        <div class="price">₦65,000</div>
+        <button class="add" onclick="addToCart('Bluetooth Speaker',65000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Audio" data-name="AirPods Pro">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=800&q=80" alt="AirPods Pro">
+      </div>
+      <div class="product-info">
+        <span class="tag">Audio</span>
+        <h3>AirPods Pro</h3>
+        <div class="price">₦250,000</div>
+        <button class="add" onclick="addToCart('AirPods Pro',250000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Accessories" data-name="20,000mAh Power Bank">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1609592424834-4c8d8a3c8c3d?auto=format&fit=crop&w=800&q=80" alt="Power Bank">
+      </div>
+      <div class="product-info">
+        <span class="tag">Accessories</span>
+        <h3>20,000mAh Power Bank</h3>
+        <div class="price">₦45,000</div>
+        <button class="add" onclick="addToCart('20,000mAh Power Bank',45000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Accessories" data-name="Fast USB-C Charger">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=800&q=80" alt="USB C Charger">
+      </div>
+      <div class="product-info">
+        <span class="tag">Accessories</span>
+        <h3>Fast USB-C Charger</h3>
+        <div class="price">₦25,000</div>
+        <button class="add" onclick="addToCart('Fast USB-C Charger',25000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Accessories" data-name="Wireless Mouse">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=800&q=80" alt="Wireless Mouse">
+      </div>
+      <div class="product-info">
+        <span class="tag">Accessories</span>
+        <h3>Wireless Mouse</h3>
+        <div class="price">₦18,000</div>
+        <button class="add" onclick="addToCart('Wireless Mouse',18000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product" data-category="Gaming" data-name="Gaming Controller">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&w=800&q=80" alt="Gaming Controller">
+      </div>
+      <div class="product-info">
+        <span class="tag">Gaming</span>
+        <h3>Gaming Controller</h3>
+        <div class="price">₦55,000</div>
+        <button class="add" onclick="addToCart('Gaming Controller',55000)">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="no-results" id="noResults">
+    No products found.
+  </div>
+
+</main>
+
+<footer>
+  <h2>PULSE CART ENTERPRISES</h2>
+  <p>Discover Tech. Explore More.</p>
+  <p>Abuja, Nigeria</p>
+  <p>WhatsApp: +234 809 760 43577</p>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="cart">
+
+    <div class="cart-head">
+      <h2>Your Cart</h2>
+      <button class="close" onclick="closeCart()">×</button>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="total">
+      Total: ₦<span id="cartTotal">0</span>
+    </div>
+
+    <button class="order" onclick="orderWhatsApp()">
+      Order on WhatsApp
+    </button>
+
+  </div>
+</div>
+
+<script>
+let cart = [];
+let currentCategory = "All";
+
+function addToCart(name,price){
+  const existing = cart.find(item => item.name === name);
+
+  if(existing){
+    existing.qty++;
+  }else{
+    cart.push({
+      name:name,
+      price:price,
+      qty:1
+    });
+  }
+
+  updateCart();
+  openCart();
+}
+
+function updateCart(){
+
+  document.getElementById("cartCount").textContent =
+    cart.reduce((sum,item)=>sum + item.qty,0);
+
+  const container = document.getElementById("cartItems");
+
+  if(cart.length === 0){
+    container.innerHTML =
+      "<p>Your cart is empty.</p>";
+    document.getElementById("cartTotal").textContent = "0";
+    return;
+  }
+
+  container.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach((item,index)=>{
+
+    total += item.price * item.qty;
+
+    const div = document.createElement("div");
+    div.className = "cart-item";
+
+    div.innerHTML = `
+      <h4>${item.name}</h4>
+      <p>₦${item.price.toLocaleString()}</p>
+
+      <div class="qty">
+        <button onclick="changeQty(${index},-1)">−</button>
+        <strong>${item.qty}</strong>
+        <button onclick="changeQty(${index},1)">+</button>
+        <button onclick="removeItem(${index})">Remove</button>
+      </div>
+    `;
+
+    container.appendChild(div);
+  });
+
+  document.getElementById("cartTotal").textContent =
+    total.toLocaleString();
+}
+
+function changeQty(index,change){
+
+  cart[index].qty += change;
+
+  if(cart[index].qty <= 0){
+    cart.splice(index,1);
+  }
+
+  updateCart();
+}
+
+function removeItem(index){
+  cart.splice(index,1);
+  updateCart();
+}
+
+function openCart(){
+  document.getElementById("overlay").style.display = "block";
+}
+
+function closeCart(){
+  document.getElementById("overlay").style.display = "none";
+}
+
+function setCategory(category,button){
+
+  currentCategory = category;
+
+  document.querySelectorAll(".category")
+    .forEach(btn=>btn.classList.remove("active"));
+
+  button.classList.add("active");
+
+  filterProducts();
+}
+
+function filterProducts(){
+
+  const search =
+    document.getElementById("search")
+      .value.toLowerCase();
+
+  const products =
+    document.querySelectorAll(".product");
+
+  let visible = 0;
+
+  products.forEach(product=>{
+
+    const name =
+      product.dataset.name.toLowerCase();
+
+    const category =
+      product.dataset.category;
+
+    const matchesSearch =
+      name.includes(search);
+
+    const matchesCategory =
+      currentCategory === "All" ||
+      category === currentCategory;
+
+    if(matchesSearch && matchesCategory){
+      product.style.display = "";
+      visible++;
+    }else{
+      product.style.display = "none";
+    }
+
+  });
+
+  document.getElementById("noResults").style.display =
+    visible === 0 ? "block" : "none";
+}
+
+function orderWhatsApp(){
+
+  if(cart.length === 0){
+    alert("Your cart is empty.");
+    return;
+  }
+
+  let message =
+    "Hello Pulse Cart Enterprises!%0A%0AI want to order:%0A";
+
+  let total = 0;
+
+  cart.forEach(item=>{
+
+    message +=
+      "- " +
+      item.name +
+      " x" +
+      item.qty +
+      " = ₦" +
+      (item.price * item.qty).toLocaleString() +
+      "%0A";
+
+    total += item.price * item.qty;
+  });
+
+  message +=
+    "%0ATotal: ₦" +
+    total.toLocaleString();
+
+  window.open(
+    "https://wa.me/23480976043577?text=" + message,
+    "_blank"
+  );
+}
+</script>
+
+</body>
+      </html>
