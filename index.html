@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Pulse Cart Enterprises</title>
 
 <style>
@@ -20,11 +21,11 @@ body{
 
 header{
   background:#111827;
-  color:#fff;
+  color:white;
   padding:18px 6%;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   position:sticky;
   top:0;
   z-index:1000;
@@ -36,19 +37,19 @@ header{
   letter-spacing:1px;
 }
 
-.cart-button{
-  background:#fff;
-  color:#111827;
+.cart-btn{
   border:0;
+  background:white;
+  color:#111827;
   padding:11px 17px;
   border-radius:9px;
-  cursor:pointer;
   font-weight:700;
+  cursor:pointer;
 }
 
 .hero{
   background:linear-gradient(135deg,#111827,#374151);
-  color:#fff;
+  color:white;
   text-align:center;
   padding:75px 20px;
 }
@@ -67,11 +68,11 @@ header{
 }
 
 .hero-buttons{
+  margin-top:28px;
   display:flex;
   justify-content:center;
   gap:12px;
   flex-wrap:wrap;
-  margin-top:28px;
 }
 
 .hero-buttons a{
@@ -81,14 +82,14 @@ header{
   font-weight:700;
 }
 
-.shop-button{
-  background:#fff;
+.shop-btn{
+  background:white;
   color:#111827;
 }
 
-.whatsapp-button{
+.whatsapp-btn{
   background:#25d366;
-  color:#fff;
+  color:white;
 }
 
 .container{
@@ -111,13 +112,9 @@ header{
   border:1px solid #d1d5db;
   border-radius:10px;
   font-size:16px;
-  outline:none;
   margin-bottom:18px;
-  background:#fff;
-}
-
-.search:focus{
-  border-color:#111827;
+  outline:none;
+  background:white;
 }
 
 .categories{
@@ -129,7 +126,7 @@ header{
 
 .category{
   border:1px solid #d1d5db;
-  background:#fff;
+  background:white;
   padding:10px 16px;
   border-radius:20px;
   cursor:pointer;
@@ -139,7 +136,7 @@ header{
 .category.active,
 .category:hover{
   background:#111827;
-  color:#fff;
+  color:white;
 }
 
 .products{
@@ -149,42 +146,62 @@ header{
 }
 
 .product{
-  background:#fff;
+  background:white;
+  border:1px solid #e5e7eb;
   border-radius:14px;
   overflow:hidden;
-  border:1px solid #e5e7eb;
   box-shadow:0 5px 20px rgba(0,0,0,.07);
   transition:.2s;
 }
 
 .product:hover{
   transform:translateY(-4px);
-  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  box-shadow:0 10px 28px rgba(0,0,0,.12);
 }
 
-.product-image{
+.product-picture{
   height:220px;
-  background:#eef2f7;
   display:flex;
   align-items:center;
   justify-content:center;
+  background:#eef2f7;
+  position:relative;
   overflow:hidden;
 }
 
-.product-image img{
+.product-picture img{
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
+}
+
+.fallback-picture{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  font-size:70px;
+  background:#e5e7eb;
+}
+
+.fallback-picture small{
+  font-size:14px;
+  margin-top:12px;
+  color:#374151;
+  text-align:center;
+  padding:0 15px;
+  font-weight:700;
 }
 
 .product-info{
   padding:17px;
 }
 
-.category-name{
-  font-size:12px;
+.product-category{
   color:#6b7280;
+  font-size:12px;
   text-transform:uppercase;
   font-weight:800;
   margin-bottom:7px;
@@ -220,46 +237,46 @@ header{
   margin-bottom:14px;
 }
 
-.actions{
+.product-buttons{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:8px;
 }
 
-.actions button{
+.product-buttons button{
+  padding:11px 5px;
   border:0;
-  padding:11px 6px;
   border-radius:8px;
   cursor:pointer;
   font-weight:700;
   font-size:13px;
 }
 
-.add{
+.add-btn{
   background:#111827;
-  color:#fff;
+  color:white;
 }
 
-.details{
+.details-btn{
   background:#eef2f7;
   color:#111827;
 }
 
-.buy{
+.buy-btn{
   width:100%;
   border:0;
   padding:11px;
+  margin-top:8px;
   border-radius:8px;
   background:#25d366;
-  color:#fff;
+  color:white;
   font-weight:800;
   cursor:pointer;
-  margin-top:8px;
 }
 
 footer{
   background:#111827;
-  color:#fff;
+  color:white;
   text-align:center;
   padding:32px 20px;
   margin-top:70px;
@@ -274,10 +291,10 @@ footer p{
 /* CART */
 
 .overlay{
+  display:none;
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.6);
-  display:none;
   z-index:2000;
 }
 
@@ -285,18 +302,18 @@ footer p{
   position:absolute;
   right:0;
   top:0;
-  height:100%;
   width:410px;
   max-width:95%;
-  background:#fff;
+  height:100%;
+  background:white;
   padding:22px;
   overflow-y:auto;
 }
 
 .cart-header{
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   margin-bottom:20px;
 }
 
@@ -305,8 +322,8 @@ footer p{
   height:36px;
   border:0;
   border-radius:50%;
-  cursor:pointer;
   background:#eee;
+  cursor:pointer;
   font-size:20px;
 }
 
@@ -317,11 +334,15 @@ footer p{
   border-bottom:1px solid #e5e7eb;
 }
 
-.cart-item img{
+.cart-item-picture{
   width:70px;
   height:70px;
   border-radius:8px;
-  object-fit:cover;
+  background:#eef2f7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
 }
 
 .cart-info{
@@ -331,10 +352,6 @@ footer p{
 .cart-info h4{
   font-size:14px;
   margin-bottom:6px;
-}
-
-.cart-info strong{
-  display:block;
 }
 
 .quantity{
@@ -348,21 +365,21 @@ footer p{
   width:28px;
   height:28px;
   border:1px solid #ddd;
-  background:#fff;
+  background:white;
   border-radius:5px;
   cursor:pointer;
 }
 
 .remove{
-  border:0;
   background:none;
+  border:0;
   color:#dc2626;
   cursor:pointer;
-  margin-top:6px;
   font-size:12px;
+  margin-top:6px;
 }
 
-.total{
+.cart-total{
   border-top:2px solid #111827;
   margin-top:20px;
   padding-top:18px;
@@ -372,34 +389,28 @@ footer p{
 
 .checkout{
   width:100%;
-  border:0;
   padding:14px;
-  background:#25d366;
-  color:#fff;
+  margin-top:15px;
+  border:0;
   border-radius:9px;
+  background:#25d366;
+  color:white;
   font-weight:800;
   cursor:pointer;
-  margin-top:15px;
-}
-
-.empty{
-  text-align:center;
-  padding:50px 10px;
-  color:#6b7280;
 }
 
 
-/* DETAILS MODAL */
+/* MODAL */
 
 .modal{
+  display:none;
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.7);
-  display:none;
+  z-index:3000;
   align-items:center;
   justify-content:center;
   padding:20px;
-  z-index:3000;
 }
 
 .modal-box{
@@ -407,23 +418,20 @@ footer p{
   max-width:100%;
   max-height:90vh;
   overflow:auto;
-  background:#fff;
+  background:white;
   border-radius:16px;
   display:grid;
   grid-template-columns:1fr 1fr;
   position:relative;
 }
 
-.modal-image{
+.modal-picture{
   min-height:430px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   background:#eef2f7;
-}
-
-.modal-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+  font-size:120px;
 }
 
 .modal-info{
@@ -432,7 +440,6 @@ footer p{
 
 .modal-info h2{
   font-size:30px;
-  line-height:1.2;
   margin:10px 0;
 }
 
@@ -457,22 +464,22 @@ footer p{
 
 .modal-info button{
   width:100%;
-  border:0;
   padding:14px;
+  margin-top:8px;
+  border:0;
   border-radius:9px;
   cursor:pointer;
   font-weight:800;
-  margin-top:8px;
 }
 
 .modal-add{
   background:#111827;
-  color:#fff;
+  color:white;
 }
 
 .modal-buy{
   background:#25d366;
-  color:#fff;
+  color:white;
 }
 
 .modal-close{
@@ -483,20 +490,21 @@ footer p{
   height:38px;
   border:0;
   border-radius:50%;
-  background:#fff;
-  cursor:pointer;
+  background:white;
   font-size:20px;
+  cursor:pointer;
   z-index:5;
-  box-shadow:0 2px 10px rgba(0,0,0,.15);
 }
 
 
 /* RESPONSIVE */
 
 @media(max-width:1050px){
+
   .products{
     grid-template-columns:repeat(3,1fr);
   }
+
 }
 
 @media(max-width:760px){
@@ -513,10 +521,11 @@ footer p{
     grid-template-columns:1fr;
   }
 
-  .modal-image{
-    height:280px;
-    min-height:280px;
+  .modal-picture{
+    min-height:260px;
+    height:260px;
   }
+
 }
 
 @media(max-width:500px){
@@ -533,22 +542,16 @@ footer p{
     font-size:34px;
   }
 
-  .product-image{
-    height:250px;
-  }
-
   .cart{
     width:100%;
   }
 
-  .modal-info{
-    padding:25px;
-  }
 }
 </style>
 </head>
 
 <body>
+
 
 <header>
 
@@ -556,7 +559,7 @@ footer p{
     PULSE CART
   </div>
 
-  <button class="cart-button" onclick="openCart()">
+  <button class="cart-btn" onclick="openCart()">
     🛒 Cart <span id="cartCount">0</span>
   </button>
 
@@ -574,14 +577,14 @@ footer p{
 
   <div class="hero-buttons">
 
-    <a href="#products" class="shop-button">
+    <a href="#products" class="shop-btn">
       Shop Now
     </a>
 
     <a
       href="https://wa.me/23480976043577?text=Hello%20Pulse%20Cart%2C%20I%20want%20to%20make%20an%20enquiry."
       target="_blank"
-      class="whatsapp-button"
+      class="whatsapp-btn"
     >
       WhatsApp Us
     </a>
@@ -597,698 +600,560 @@ footer p{
     <h2>Our Products</h2>
   </div>
 
+
   <input
-    id="search"
     class="search"
+    id="search"
     type="text"
     placeholder="Search products..."
-    oninput="renderProducts()"
   >
+
 
   <div class="categories">
 
-    <button class="category active" onclick="setCategory('All',this)">
+    <button class="category active" data-category="All">
       All
     </button>
 
-    <button class="category" onclick="setCategory('Phones',this)">
+    <button class="category" data-category="Phones">
       Phones
     </button>
 
-    <button class="category" onclick="setCategory('Laptops',this)">
+    <button class="category" data-category="Laptops">
       Laptops
     </button>
 
-    <button class="category" onclick="setCategory('Gaming',this)">
+    <button class="category" data-category="Gaming">
       Gaming
     </button>
 
-    <button class="category" onclick="setCategory('Audio',this)">
+    <button class="category" data-category="Audio">
       Audio
     </button>
 
-    <button class="category" onclick="setCategory('Accessories',this)">
+    <button class="category" data-category="Accessories">
       Accessories
     </button>
 
   </div>
 
-  <div class="products" id="productGrid"></div>
 
-</main>
+  <!-- PRODUCTS ARE DIRECTLY IN THE HTML -->
 
+  <div class="products" id="productGrid">
 
-<footer>
 
-  <h3>PULSE CART ENTERPRISES</h3>
+    <!-- 1 -->
 
-  <p>
-    Quality technology products at competitive prices.
-  </p>
+    <div class="product" data-category="Laptops" data-name="Apple MacBook Pro 2023 14-inch">
 
-  <p>
-    © 2026 Pulse Cart Enterprises. All rights reserved.
-  </p>
+      <div class="product-picture">
 
-</footer>
-
-
-<!-- CART -->
-
-<div class="overlay" id="cartOverlay">
-
-  <div class="cart">
-
-    <div class="cart-header">
-
-      <h2>Your Cart</h2>
-
-      <button class="close" onclick="closeCart()">
-        ×
-      </button>
-
-    </div>
-
-    <div id="cartItems"></div>
-
-    <div class="total">
-      Total: ₦<span id="cartTotal">0</span>
-    </div>
-
-    <button class="checkout" onclick="checkoutWhatsApp()">
-      Order on WhatsApp
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- PRODUCT DETAILS -->
-
-<div class="modal" id="productModal">
-
-  <div class="modal-box">
-
-    <button class="modal-close" onclick="closeModal()">
-      ×
-    </button>
-
-    <div class="modal-image">
-      <img id="modalImage" alt="Product">
-    </div>
-
-    <div class="modal-info">
-
-      <div class="modal-category" id="modalCategory"></div>
-
-      <h2 id="modalTitle"></h2>
-
-      <div class="rating" id="modalRating"></div>
-
-      <div class="stock">
-        ● In Stock
-      </div>
-
-      <div class="modal-price" id="modalPrice"></div>
-
-      <p class="description" id="modalDescription"></p>
-
-      <button class="modal-add" onclick="modalAdd()">
-        Add to Cart
-      </button>
-
-      <button class="modal-buy" onclick="modalBuy()">
-        Buy Now on WhatsApp
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<script>
-
-/*
-  PULSE CART PRODUCT DATA
-*/
-
-const products = [
-
-  {
-    id:1,
-    name:"Apple MacBook Pro 2023 14-inch",
-    price:1050000,
-    category:"Laptops",
-    rating:4.9,
-    emoji:"💻",
-    color:"#dbeafe",
-    description:"Powerful Apple MacBook Pro designed for productivity, school, business and professional work."
-  },
-
-  {
-    id:2,
-    name:"MacBook Air 13.3-inch 2020",
-    price:612000,
-    category:"Laptops",
-    rating:4.8,
-    emoji:"💻",
-    color:"#e0f2fe",
-    description:"Slim and portable MacBook Air suitable for everyday computing, school and business."
-  },
-
-  {
-    id:3,
-    name:"Dell Latitude 7400 2-in-1",
-    price:890000,
-    category:"Laptops",
-    rating:4.7,
-    emoji:"💻",
-    color:"#e5e7eb",
-    description:"Versatile Dell Latitude laptop with a premium business-focused design."
-  },
-
-  {
-    id:4,
-    name:"PlayStation 5 Brand New",
-    price:950000,
-    category:"Gaming",
-    rating:4.9,
-    emoji:"🎮",
-    color:"#dbeafe",
-    description:"Next-generation PlayStation gaming console for an immersive gaming experience."
-  },
-
-  {
-    id:5,
-    name:"Tecno Camon 40 CM5",
-    price:319800,
-    category:"Phones",
-    rating:4.6,
-    emoji:"📱",
-    color:"#ede9fe",
-    description:"Modern smartphone with a stylish design and useful everyday features."
-  },
-
-  {
-    id:6,
-    name:"iPhone 15",
-    price:750000,
-    category:"Phones",
-    rating:4.9,
-    emoji:"📱",
-    color:"#f3f4f6",
-    description:"Premium Apple smartphone with a modern design and excellent everyday performance."
-  },
-
-  {
-    id:7,
-    name:"Samsung Galaxy S24",
-    price:820000,
-    category:"Phones",
-    rating:4.8,
-    emoji:"📱",
-    color:"#dbeafe",
-    description:"Premium Samsung Galaxy smartphone built for performance, photography and everyday use."
-  },
-
-  {
-    id:8,
-    name:"iPhone 13",
-    price:580000,
-    category:"Phones",
-    rating:4.8,
-    emoji:"📱",
-    color:"#e0e7ff",
-    description:"Popular Apple smartphone offering reliable performance and a premium experience."
-  },
-
-  {
-    id:9,
-    name:"HP EliteBook",
-    price:650000,
-    category:"Laptops",
-    rating:4.6,
-    emoji:"💻",
-    color:"#f3f4f6",
-    description:"Professional HP laptop suitable for business, school and everyday productivity."
-  },
-
-  {
-    id:10,
-    name:"Wireless Gaming Headset",
-    price:85000,
-    category:"Audio",
-    rating:4.7,
-    emoji:"🎧",
-    color:"#ede9fe",
-    description:"Wireless gaming headset designed for immersive gaming and clear communication."
-  },
-
-  {
-    id:11,
-    name:"Bluetooth Speaker",
-    price:65000,
-    category:"Audio",
-    rating:4.6,
-    emoji:"🔊",
-    color:"#fef3c7",
-    description:"Portable Bluetooth speaker for music, entertainment and everyday listening."
-  },
-
-  {
-    id:12,
-    name:"AirPods Pro",
-    price:250000,
-    category:"Audio",
-    rating:4.8,
-    emoji:"🎧",
-    color:"#f3f4f6",
-    description:"Premium wireless earbuds with a compact design and excellent everyday audio."
-  },
-
-  {
-    id:13,
-    name:"20,000mAh Power Bank",
-    price:45000,
-    category:"Accessories",
-    rating:4.5,
-    emoji:"🔋",
-    color:"#dcfce7",
-    description:"High-capacity power bank for keeping your devices charged while you're on the move."
-  },
-
-  {
-    id:14,
-    name:"Fast USB-C Charger",
-    price:25000,
-    category:"Accessories",
-    rating:4.5,
-    emoji:"🔌",
-    color:"#fef3c7",
-    description:"Compact fast charger suitable for compatible phones and other USB-C devices."
-  },
-
-  {
-    id:15,
-    name:"Wireless Mouse",
-    price:18000,
-    category:"Accessories",
-    rating:4.4,
-    emoji:"🖱️",
-    color:"#e5e7eb",
-    description:"Wireless mouse with a clean design for laptops, computers, school and office work."
-  },
-
-  {
-    id:16,
-    name:"Gaming Controller",
-    price:55000,
-    category:"Gaming",
-    rating:4.6,
-    emoji:"🎮",
-    color:"#dbeafe",
-    description:"Comfortable gaming controller designed for an enjoyable gaming experience."
-  }
-
-];
-
-
-/*
-  BUILT-IN FALLBACK PRODUCT IMAGE
-
-  This means the product card will still have
-  a visible product image even if an external
-  image cannot load.
-*/
-
-function fallbackImage(product){
-
-  const svg = `
-  <svg xmlns="http://www.w3.org/2000/svg"
-       width="800"
-       height="600"
-       viewBox="0 0 800 600">
-
-    <rect width="800" height="600"
-          fill="${product.color}"/>
-
-    <text x="400"
-          y="260"
-          text-anchor="middle"
-          font-size="130">
-      ${product.emoji}
-    </text>
-
-    <text x="400"
-          y="390"
-          text-anchor="middle"
-          font-family="Arial"
-          font-size="32"
-          font-weight="bold"
-          fill="#111827">
-      ${product.name}
-    </text>
-
-    <text x="400"
-          y="435"
-          text-anchor="middle"
-          font-family="Arial"
-          font-size="22"
-          fill="#4b5563">
-      PULSE CART
-    </text>
-
-  </svg>
-  `;
-
-  return "data:image/svg+xml;charset=UTF-8," +
-    encodeURIComponent(svg);
-}
-
-
-/*
-  PRODUCT IMAGE
-
-  Uses an online image when available,
-  but automatically falls back to the
-  built-in image if it fails.
-*/
-
-function productImage(product){
-
-  const fallback = fallbackImage(product);
-
-  return fallback;
-}
-
-
-/*
-  FORMAT PRICE
-*/
-
-function formatPrice(price){
-  return price.toLocaleString("en-NG");
-}
-
-
-/*
-  STAR RATING
-*/
-
-function stars(rating){
-
-  return "★★★★★ <span>(" + rating + ")</span>";
-
-}
-
-
-/*
-  VARIABLES
-*/
-
-let cart = [];
-
-let currentCategory = "All";
-
-let selectedProduct = null;
-
-
-/*
-  DISPLAY PRODUCTS
-*/
-
-function renderProducts(){
-
-  const grid =
-    document.getElementById("productGrid");
-
-  const search =
-    document.getElementById("search")
-    .value
-    .toLowerCase()
-    .trim();
-
-
-  const filtered = products.filter(product => {
-
-    const categoryMatch =
-      currentCategory === "All" ||
-      product.category === currentCategory;
-
-    const searchMatch =
-      product.name.toLowerCase().includes(search) ||
-      product.category.toLowerCase().includes(search);
-
-    return categoryMatch && searchMatch;
-
-  });
-
-
-  if(filtered.length === 0){
-
-    grid.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        text-align:center;
-        padding:60px 20px;
-      ">
-
-        <h3>No products found</h3>
-
-        <p style="
-          color:#6b7280;
-          margin-top:8px;
-        ">
-          Try another search.
-        </p>
-
-      </div>
-    `;
-
-    return;
-  }
-
-
-  grid.innerHTML = filtered.map(product => {
-
-    const image = productImage(product);
-
-    return `
-
-      <div class="product">
-
-        <div class="product-image">
-
-          <img
-            src="${image}"
-            alt="${product.name}"
-          >
-
+        <div class="fallback-picture">
+          💻
+          <small>MacBook Pro 2023</small>
         </div>
 
-        <div class="product-info">
+      </div>
 
-          <div class="category-name">
-            ${product.category}
-          </div>
+      <div class="product-info">
 
-          <h3>
-            ${product.name}
-          </h3>
+        <div class="product-category">
+          Laptops
+        </div>
 
-          <div class="rating">
-            ${stars(product.rating)}
-          </div>
+        <h3>
+          Apple MacBook Pro 2023 14-inch
+        </h3>
 
-          <div class="stock">
-            ● In Stock
-          </div>
+        <div class="rating">
+          ★★★★★ <span>(4.9)</span>
+        </div>
 
-          <div class="price">
-            ₦${formatPrice(product.price)}
-          </div>
+        <div class="stock">
+          ● In Stock
+        </div>
 
-          <div class="actions">
+        <div class="price">
+          ₦1,050,000
+        </div>
 
-            <button
-              class="add"
-              onclick="addToCart(${product.id})"
-            >
-              Add to Cart
-            </button>
+        <div class="product-buttons">
 
-            <button
-              class="details"
-              onclick="showDetails(${product.id})"
-            >
-              View Details
-            </button>
+          <button class="add-btn"
+            onclick="addProduct('Apple MacBook Pro 2023 14-inch',1050000,'💻')">
+            Add to Cart
+          </button>
 
-          </div>
-
-          <button
-            class="buy"
-            onclick="buyNow(${product.id})"
-          >
-            Buy Now
+          <button class="details-btn"
+            onclick="details('Apple MacBook Pro 2023 14-inch','Laptops','₦1,050,000','💻','4.9')">
+            View Details
           </button>
 
         </div>
 
-      </div>
-
-    `;
-
-  }).join("");
-
-}
-
-
-/*
-  CATEGORY FILTER
-*/
-
-function setCategory(category,button){
-
-  currentCategory = category;
-
-  document.querySelectorAll(".category")
-    .forEach(item => {
-      item.classList.remove("active");
-    });
-
-  button.classList.add("active");
-
-  renderProducts();
-
-}
-
-
-/*
-  ADD TO CART
-*/
-
-function addToCart(id){
-
-  const product =
-    products.find(item => item.id === id);
-
-  if(!product) return;
-
-
-  const existing =
-    cart.find(item => item.id === id);
-
-
-  if(existing){
-
-    existing.quantity++;
-
-  }else{
-
-    cart.push({
-      id:product.id,
-      name:product.name,
-      price:product.price,
-      category:product.category,
-      rating:product.rating,
-      emoji:product.emoji,
-      color:product.color,
-      quantity:1
-    });
-
-  }
-
-
-  updateCart();
-
-}
-
-
-/*
-  UPDATE CART
-*/
-
-function updateCart(){
-
-  const count =
-    cart.reduce(
-      (total,item) => total + item.quantity,
-      0
-    );
-
-  document.getElementById("cartCount")
-    .textContent = count;
-
-
-  const container =
-    document.getElementById("cartItems");
-
-
-  if(cart.length === 0){
-
-    container.innerHTML = `
-      <div class="empty">
-
-        <h3>Your cart is empty</h3>
-
-        <p>
-          Add products to your cart to continue.
-        </p>
+        <button class="buy-btn"
+          onclick="buy('Apple MacBook Pro 2023 14-inch','₦1,050,000')">
+          Buy Now
+        </button>
 
       </div>
-    `;
 
-    document.getElementById("cartTotal")
-      .textContent = "0";
-
-    return;
-  }
+    </div>
 
 
-  container.innerHTML = cart.map(item => {
+    <!-- 2 -->
 
-    const image =
-      fallbackImage(item);
+    <div class="product" data-category="Laptops" data-name="MacBook Air 13.3-inch 2020">
 
-    return `
+      <div class="product-picture">
+        <div class="fallback-picture">
+          💻
+          <small>MacBook Air</small>
+        </div>
+      </div>
 
-      <div class="cart-item">
+      <div class="product-info">
 
-        <img
-          src="${image}"
-          alt="${item.name}"
-        >
+        <div class="product-category">Laptops</div>
 
-        <div class="cart-info">
+        <h3>MacBook Air 13.3-inch 2020</h3>
 
-          <h4>
-            ${item.name}
-          </h4>
+        <div class="rating">
+          ★★★★★ <span>(4.8)</span>
+        </div>
 
-          <strong>
-            ₦${formatPrice(item.price)}
-          </strong>
+        <div class="stock">● In Stock</div>
 
-          <div class="quantity">
+        <div class="price">₦612,000</div>
 
-            <button
-              onclick="changeQuantity(${item.id},-1)"
-            >
-              −
-            </button>
+        <div class="product-buttons">
 
-            <span>
-              ${item.quantity}
-            </span>
+          <button class="add-btn"
+            onclick="addProduct('MacBook Air 13.3-inch 2020',612000,'💻')">
+            Add to Cart
+          </button>
 
-            <button
-              onclick="changeQuantity(${item.id},1)"
-            >
-              +
-            </button>
+          <button class="details-btn"
+            onclick="details('MacBook Air 13.3-inch 2020','Laptops','₦612,000','💻','4.8')">
+            View Details
+          </button>
 
-          
+        </div>
+
+        <button class="buy-btn"
+          onclick="buy('MacBook Air 13.3-inch 2020','₦612,000')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3 -->
+
+    <div class="product" data-category="Laptops" data-name="Dell Latitude 7400 2-in-1">
+
+      <div class="product-picture">
+        <div class="fallback-picture">
+          💻
+          <small>Dell Latitude</small>
+        </div>
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-category">Laptops</div>
+
+        <h3>Dell Latitude 7400 2-in-1</h3>
+
+        <div class="rating">
+          ★★★★★ <span>(4.7)</span>
+        </div>
+
+        <div class="stock">● In Stock</div>
+
+        <div class="price">₦890,000</div>
+
+        <div class="product-buttons">
+
+          <button class="add-btn"
+            onclick="addProduct('Dell Latitude 7400 2-in-1',890000,'💻')">
+            Add to Cart
+          </button>
+
+          <button class="details-btn"
+            onclick="details('Dell Latitude 7400 2-in-1','Laptops','₦890,000','💻','4.7')">
+            View Details
+          </button>
+
+        </div>
+
+        <button class="buy-btn"
+          onclick="buy('Dell Latitude 7400 2-in-1','₦890,000')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- 4 -->
+
+    <div class="product" data-category="Gaming" data-name="PlayStation 5 Brand New">
+
+      <div class="product-picture">
+        <div class="fallback-picture">
+          🎮
+          <small>PlayStation 5</small>
+        </div>
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-category">Gaming</div>
+
+        <h3>PlayStation 5 Brand New</h3>
+
+        <div class="rating">
+          ★★★★★ <span>(4.9)</span>
+        </div>
+
+        <div class="stock">● In Stock</div>
+
+        <div class="price">₦950,000</div>
+
+        <div class="product-buttons">
+
+          <button class="add-btn"
+            onclick="addProduct('PlayStation 5 Brand New',950000,'🎮')">
+            Add to Cart
+          </button>
+
+          <button class="details-btn"
+            onclick="details('PlayStation 5 Brand New','Gaming','₦950,000','🎮','4.9')">
+            View Details
+          </button>
+
+        </div>
+
+        <button class="buy-btn"
+          onclick="buy('PlayStation 5 Brand New','₦950,000')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- 5 -->
+
+    <div class="product" data-category="Phones" data-name="Tecno Camon 40 CM5">
+
+      <div class="product-picture">
+        <div class="fallback-picture">
+          📱
+          <small>Tecno Camon 40</small>
+        </div>
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-category">Phones</div>
+
+        <h3>Tecno Camon 40 CM5</h3>
+
+        <div class="rating">
+          ★★★★★ <span>(4.6)</span>
+        </div>
+
+        <div class="stock">● In Stock</div>
+
+        <div class="price">₦319,800</div>
+
+        <div class="product-buttons">
+
+          <button class="add-btn"
+            onclick="addProduct('Tecno Camon 40 CM5',319800,'📱')">
+            Add to Cart
+          </button>
+
+          <button class="details-btn"
+            onclick="details('Tecno Camon 40 CM5','Phones','₦319,800','📱','4.6')">
+            View Details
+          </button>
+
+        </div>
+
+        <button class="buy-btn"
+          onclick="buy('Tecno Camon 40 CM5','₦319,800')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- 6 -->
+
+    <div class="product" data-category="Phones" data-name="iPhone 15">
+
+      <div class="product-picture">
+        <div class="fallback-picture">
+          📱
+          <small>iPhone 15</small>
+        </div>
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-category">Phones</div>
+
+        <h3>iPhone 15</h3>
+
+        <div class="rating">
+          ★★★★★ <span>(4.9)</span>
+        </div>
+
+        <div class="stock">● In Stock</div>
+
+        <div class="price">₦750,000</div>
+
+        <div class="product-buttons">
+
+          <button class="add-btn"
+            onclick="addProduct('iPhone 15',750000,'📱')">
+            Add to Cart
+          </button>
+
+          <button class="details-btn"
+            onclick="details('iPhone 15','Phones','₦750,000','📱','4.9')">
+            View Details
+          </button>
+
+        </div>
+
+        <button class="buy-btn"
+          onclick="buy('iPhone 15','₦750,000')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- 7 -->
+
+    <div class="product" data-category="Phones" data-name="Samsung Galaxy S24">
+
+      <div class="product-picture">
+        <div class="fallback-picture">
+          📱
+          <small>Samsung Galaxy S24</small>
+        </div>
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-category">Phones</div>
+
+        <h3>Samsung Galaxy S24</h3>
+
+        <div class="rating">
+          ★★★★★ <span>(4.8)</span>
+        </div>
+
+        <div class="stock">● In Stock</div>
+
+        <div class="price">₦820,000</div>
+
+        <div class="product-buttons">
+
+          <button class="add-btn"
+            onclick="addProduct('Samsung Galaxy S24',820000,'📱')">
+            Add to Cart
+          </button>
+
+          <button class="details-btn"
+            onclick="details('Samsung Galaxy S24','Phones','₦820,000','📱','4.8')">
+            View Details
+          </button>
+
+        </div>
+
+        <button class="buy-btn"
+          onclick="buy('Samsung Galaxy S24','₦820,000')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- 8 -->
+
+    <div class="product" data-category="Phones" data-name="iPhone 13">
+
+      <div class="product-picture">
+        <div class="fallback-picture">
+          📱
+          <small>iPhone 13</small>
+        </div>
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-category">Phones</div>
+
+        <h3>iPhone 13</h3>
+
+        <div class="rating">
+          ★★★★★ <span>(4.8)</span>
+        </div>
+
+        <div class="stock">● In Stock</div>
+
+        <div class="price">₦580,000</div>
+
+        <div class="product-buttons">
+
+          <button class="add-btn"
+            onclick="addProduct('iPhone 13',580000,'📱')">
+            Add to Cart
+          </button>
+
+          <button class="details-btn"
+            onclick="details('iPhone 13','Phones','₦580,000','📱','4.8')">
+            View Details
+          </button>
+
+        </div>
+
+        <button class="buy-btn"
+          onclick="buy('iPhone 13','₦580,000')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- 9 -->
+
+    <div class="product" data-category="Laptops" data-name="HP EliteBook">
+
+      <div class="product-picture">
+        <div class="fallback-picture">
+          💻
+          <small>HP EliteBook</small>
+        </div>
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-category">Laptops</div>
+
+        <h3>HP EliteBook</h3>
+
+        <div class="rating">
+          ★★★★★ <span>(4.6)</span>
+        </div>
+
+        <div class="stock">● In Stock</div>
+
+        <div class="price">₦650,000</div>
+
+        <div class="product-buttons">
+
+          <button class="add-btn"
+            onclick="addProduct('HP EliteBook',650000,'💻')">
+            Add to Cart
+          </button>
+
+          <button class="details-btn"
+            onclick="details('HP EliteBook','Laptops','₦650,000','💻','4.6')">
+            View Details
+          </button>
+
+        </div>
+
+        <button class="buy-btn"
+          onclick="buy('HP EliteBook','₦650,000')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- 10 -->
+
+    <div class="product" data-category="Audio" data-name="Wireless Gaming Headset">
+
+      <div class="product-picture">
+        <div class="fallback-picture">
+          🎧
+          <small>Gaming Headset</small>
+        </div>
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-category">Audio</div>
+
+        <h3>Wireless Gaming Headset</h3>
+
+        <div class="rating">
+          ★★★★★ <span>(4.7)</span>
+        </div>
+
+        <div class="stock">● In Stock</div>
+
+        <div class="price">₦85,000</div>
+
+        <div class="product-buttons">
+
+          <button class="add-btn"
+            onclick="addProduct('Wireless Gaming Headset',85000,'🎧')">
+            Add to Cart
+          </button>
+
+          <button class="details-btn"
+            onclick="details('Wireless Gaming Headset','Audio','₦85,000','🎧','4.7')">
+            View Details
+          </button>
+
+        </div>
+
+        <button class="buy-btn"
+          onclick="buy('Wireless Gaming Headset','₦85,000')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- 11 -->
+
+    <div class="product" data-category="Audio" data-name="Bluetooth Speaker">
+
+      <div class="product-picture">
+        <div class="fallback-picture">
+          🔊
+          <small>Bluetooth Speaker</small>
+        </div>
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-category">Audi
