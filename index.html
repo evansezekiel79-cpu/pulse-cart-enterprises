@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pulse Cart Enterprises | Discover Tech</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f7fb;
+    color:#111827;
+    line-height:1.5;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    background:#111827;
+    color:white;
+    padding:16px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.cart-btn{
+    border:none;
+    background:#2563eb;
+    color:white;
+    padding:11px 17px;
+    border-radius:9px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    background:linear-gradient(135deg,#111827,#1d4ed8);
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:52px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    font-size:18px;
+    color:#e5e7eb;
+}
+
+.hero-buttons{
+    margin-top:28px;
+}
+
+.hero-buttons a{
+    display:inline-block;
+    text-decoration:none;
+    padding:13px 22px;
+    border-radius:9px;
+    margin:5px;
+    font-weight:bold;
+}
+
+.shop-button{
+    background:white;
+    color:#2563eb;
+}
+
+.whatsapp-button{
+    background:#22c55e;
+    color:white;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    max-width:1000px;
+    margin:35px auto;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.stat{
+    background:white;
+    padding:25px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+}
+
+.stat h2{
+    color:#2563eb;
+    font-size:30px;
+}
+
+.stat p{
+    color:#6b7280;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-heading{
+    text-align:center;
+    margin:55px 0 25px;
+}
+
+.section-heading h2{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.section-heading p{
+    color:#6b7280;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search{
+    width:100%;
+    padding:15px 17px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    background:white;
+    font-size:16px;
+    outline:none;
+    margin-bottom:18px;
+}
+
+.search:focus{
+    border-color:#2563eb;
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:30px;
+}
+
+.category{
+    border:1px solid #d1d5db;
+    background:white;
+    padding:10px 17px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.category:hover,
+.category.active{
+    background:#2563eb;
+    color:white;
+    border-color:#2563eb;
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.product{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 18px rgba(0,0,0,.07);
+    transition:.2s;
+}
+
+.product:hover{
+    transform:translateY(-4px);
+}
+
+.product-image{
+    height:190px;
+    background:#eef2f7;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+}
+
+.product-content{
+    padding:18px;
+}
+
+.product-category{
+    font-size:12px;
+    color:#2563eb;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.product h3{
+    font-size:17px;
+    margin:8px 0;
+    min-height:45px;
+}
+
+.price{
+    font-size:20px;
+    font-weight:800;
+    margin:12px 0;
+}
+
+.add-cart{
+    width:100%;
+    border:none;
+    background:#111827;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.add-cart:hover{
+    background:#2563eb;
+}
+
+
+/* =========================
+   WHY US
+========================= */
+
+.why{
+    margin-top:70px;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.why-card{
+    background:white;
+    padding:30px 20px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+}
+
+.why-icon{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.why-card h3{
+    margin-bottom:8px;
+}
+
+.why-card p{
+    color:#6b7280;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    margin-top:70px;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+}
+
+.about p{
+    max-width:750px;
+    margin:12px auto 0;
+    color:#6b7280;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    margin-top:70px;
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:45px 20px;
+}
+
+.footer p{
+    color:#d1d5db;
+    margin:7px 0;
+}
+
+.footer-whatsapp{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 20px;
+    border-radius:9px;
+    background:#22c55e;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+
+/* =========================
+   CART
+========================= */
+
+.cart-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    z-index:1000;
+}
+
+.cart-box{
+    background:white;
+    width:100%;
+    max-width:430px;
+    height:100%;
+    position:absolute;
+    right:0;
+    top:0;
+    padding:22px;
+    overflow-y:auto;
+}
+
+.cart-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #e5e7eb;
+    padding-bottom:15px;
+}
+
+.close-cart{
+    width:36px;
+    height:36px;
+    border:none;
+    border-radius:50%;
+    background:#ef4444;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.cart-empty{
+    text-align:center;
+    padding:60px 10px;
+    color:#6b7280;
+}
+
+.cart-item{
+    display:flex;
+    gap:12px;
+    padding:16px 0;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.cart-item-icon{
+    width:60px;
+    height:60px;
+    background:#f3f4f6;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+}
+
+.cart-item-info{
+    flex:1;
+}
+
+.cart-item-info h4{
+    font-size:14px;
+}
+
+.cart-item-price{
+    font-weight:bold;
+    margin-top:3px;
+}
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:8px;
+}
+
+.quantity button{
+    width:28px;
+    height:28px;
+    border:none;
+    background:#e5e7eb;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.remove-item{
+    width:auto !important;
+    padding:0 7px;
+    background:white !important;
+    color:#ef4444;
+}
+
+.cart-total{
+    display:flex;
+    justify-content:space-between;
+    border-top:2px solid #111827;
+    margin-top:20px;
+    padding-top:18px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.order-button{
+    display:block;
+    width:100%;
+    border:none;
+    background:#22c55e;
+    color:white;
+    padding:15px;
+    border-radius:9px;
+    margin-top:20px;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.clear-button{
+    width:100%;
+    background:white;
+    color:#ef4444;
+    border:1px solid #ef4444;
+    padding:12px;
+    border-radius:9px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:950px){
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .header{
+        padding:14px 4%;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .nav a{
+        display:none;
+    }
+
+    .hero{
+        padding:65px 20px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about{
+        padding:25px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="logo">
+        PULSE CART
+    </div>
+
+    <div class="nav">
+
+        <a href="#products">
+            Shop
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <button class="cart-btn" onclick="openCart()">
+            🛒 Cart
+            <span id="cartCount">0</span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <h1>
+        Discover Tech.
+    </h1>
+
+    <p>
+        Explore phones, laptops, gaming products,
+        audio devices and accessories from
+        Pulse Cart Enterprises.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#products" class="shop-button">
+            Shop Now
+        </a>
+
+        <a
+            href="https://wa.me/23480976043577"
+            target="_blank"
+            class="whatsapp-button">
+            WhatsApp Us
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<section class="stats">
+
+    <div class="stat">
+
+        <h2>
+            16+
+        </h2>
+
+        <p>
+            Products
+        </p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h2>
+            5
+        </h2>
+
+        <p>
+            Categories
+        </p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h2>
+            Abuja
+        </h2>
+
+        <p>
+            Based Store
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<main class="container" id="products">
+
+    <div class="section-heading">
+
+        <h2>
+            Our Products
+        </h2>
+
+        <p>
+            Find the technology you need.
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <input
+        class="search"
+        id="searchBox"
+        type="text"
+        placeholder="🔍 Search products..."
+    >
+
+
+    <!-- CATEGORIES -->
+
+    <div class="categories">
+
+        <button class="category active" data-category="All">
+            All
+        </button>
+
+        <button class="category" data-category="Phones">
+            Phones
+        </button>
+
+        <button class="category" data-category="Laptops">
+            Laptops
+        </button>
+
+        <button class="category" data-category="Gaming">
+            Gaming
+        </button>
+
+        <button class="category" data-category="Audio">
+            Audio
+        </button>
+
+        <button class="category" data-category="Accessories">
+            Accessories
+        </button>
+
+    </div>
+
+
+    <!-- PRODUCT GRID -->
+
+    <div class="products" id="productGrid">
+
+
+        <!-- 1 -->
+
+        <article
+            class="product"
+            data-category="Laptops"
+            data-name="Apple MacBook Pro 14-inch 2023">
+
+            <div class="product-image">
+                💻
+            </div>
+
+            <div class="product-content">
+
+                <span class="product-category">
+                    Laptops
+                </span>
+
+                <h3>
+                    Apple MacBook Pro 14-inch 2023
+                </h3>
+
+                <div class="price">
+                    ₦1,050,000
+                </div>
+
+                <button
+                    class="add-cart"
+                    data-name="Apple MacBook Pro 14-inch 2023"
+                    data-price="1050000"
+                    data-icon="💻">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- 2 -->
+
+        <article
+            class="product"
+            data-category="Laptops"
+            data-name="MacBook Air 13.3-inch 2020">
+
+            <div class="product-image">
+                💻
+            </div>
+
+            <div class="product-content">
+
+                <span class="product-category">
+                    Laptops
+                </span>
+
+                <h3>
+                    MacBook Air 13.3-inch 2020
+                </h3>
+
+                <div class="price">
+                    ₦612,000
+                </div>
+
+                <button
+                    class="add-cart"
+                    data-name="MacBook Air 13.3-inch 2020"
+                    data-price="612000"
+                    data-icon="💻">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- 3 -->
+
+        <article
+            class="product"
+            data-category="Laptops"
+            data-name="Dell Latitude 7400 2-in-1">
+
+            <div class="product-image">
+                💻
+            </div>
+
+            <div class="product-content">
+
+                <span class="product-category">
+                    Laptops
+                </span>
+
+                <h3>
+                    Dell Latitude 7400 2-in-1
+                </h3>
+
+                <div class="price">
+                    ₦890,000
+                </div>
+
+                <button
+                    class="add-cart"
+                    data-name="Dell Latitude 7400 2-in-1"
+                    data-price="890000"
+                    data-icon="💻">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- 4 -->
+
+        <article
+            class="product"
+            data-category="Gaming"
+            data-name="PlayStation 5 Brand New">
+
+            <div class="product-image">
+                🎮
+            </div>
+
+            <div class="product-content">
+
+                <span class="product-category">
+                    Gaming
+                </span>
+
+                <h3>
+                    PlayStation 5 Brand New
+                </h3>
+
+                <div class="price">
+                    ₦950,000
+                </div>
+
+                <button
+                    class="add-cart"
+                    data-name="PlayStation 5 Brand New"
+                    data-price="950000"
+                    data-icon="🎮">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- 5 -->
+
+        <article
+            class="product"
+            data-category="Phones"
+            data-name="Tecno Camon 40 CM5">
+
+            <div class="product-image">
+                📱
+            </div>
+
+            <div class="product-content">
+
+                <span class="product-category">
+                    Phones
+                </span>
+
+                <h3>
+                    Tecno Camon 40 CM5
+                </h3>
+
+                <div class="price">
+                    ₦319,800
+                </div>
+
+                <button
+                    class="add-cart"
+                    data-name="Tecno Camon 40 CM5"
+                    data-price="319800"
+                    data-icon="📱">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- 6 -->
+
+        <article
+            class="product"
+            data-category="Phones"
+            data-name="iPhone 15">
+
+            <div class="product-image">
+                📱
+            </div>
+
+            <div class="product-content">
+
+                <span class="product-category">
+                    Phones
+                </span>
+
+                <h3>
+                    iPhone 15
+                </h3>
+
+                <div class="price">
+                    ₦750,000
